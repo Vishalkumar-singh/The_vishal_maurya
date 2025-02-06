@@ -242,4 +242,11 @@ main {
     header nav {
         gap: 30px;
     }
+}@media (max-width:380px) {
+    :root {
+        --name-font-size: 11px;
+    }
+    header nav {
+        gap: 20px;
+    }
 }

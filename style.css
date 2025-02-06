@@ -216,11 +216,21 @@ main {
 }
 
 /* ----------Media---------------- */
+@media (max-width:1000px) {
+    :root {
+        --name-font-size: 15px;
+        --con-width: 90%;
+    }
+
+    header .menu {
+        gap: 20px;
+    }
+}
+
 @media (max-width:530px) {
     :root {
         --name-font-size: 15px;
         --con-width: 90%;
-        --con-height: 85vh;
         --main-height: 85%;
         --img-radius: 25px;
     }

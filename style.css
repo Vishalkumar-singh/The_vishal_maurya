@@ -28,8 +28,9 @@ a {
     --web-lod-delay: 0s;
     --nav-lod: 2s;
     --container-radius: 0 100px 0 100px;
-    --img-radius: 0 50px 0 50px;
+    --img-radius:50px;
     /* ----------Calculation---------- */
+    --img-red: 0  var(--img-radius) 0 var(--img-radius);
     --con-padd:calc(2.5 * var(--name-font-size));
     --photo-size: calc(9*var(--name-font-size));
     --ph: var(--photo-size);
@@ -67,19 +68,20 @@ header nav .my-photo {
     background-image: url("./no-back.png");
     box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.8);
     background-size: cover;
-    border-radius: var(--img-radius);
+    border-radius: var(--img-red);
     opacity: .9;
 }
 
 header nav .logo h1 span {
-    display: flex;
     letter-spacing: 3px;
     color: greenyellow;
     font-size: var(--name-font-size);
 }
-
+header nav .logo h1{
+    font-size: var(--h-font);
+}
 header nav .logo h1::after {
-    content: "Vishal Maurya";
+    content: "";
     border-right: 2px solid;
     animation: blink-curser .5s alternate infinite;
     font-size: var(--h-font);
@@ -216,12 +218,28 @@ main {
     :root {
         --name-font-size: 15px;
         --con-width: 90%;
-        --con-height: 90vh;
+        --con-height: 80vh;
         --main-height: 80%;
+        --img-radius:25px;
     }
     header nav {
         width: 90%;
         gap: 40px;
+    }
+
+    header .menu {
+        display: none;
+    }
+}@media (max-width:480px) {
+    :root {
+        --name-font-size: 10px;
+        --con-width: 90%;
+        --con-height: 70vh;
+        --main-height: 80%;
+    }
+    header nav {
+        width: 90%;
+        gap: 30px;
     }
 
     header .menu {

@@ -1,52 +1,285 @@
-<!DOCTYPE html>
-<html lang="en">
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>The Vishal Maurya</title>
-</head>
+body {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-image: url("https://wallpaperaccess.com/full/2465532.jpg"), url("https://hdqwalls.com/wallpapers/mountains-cliff-covered-under-fog-mist-5k-cy.jpg");
+    background-size: cover;
+}
 
-<body>
-    <div class="container">
-        <header>
-            <nav>
-                <div class="my-photo"></div>
-                <div class="logo">
-                    <h1><span>The</span><br>Vishal Maurya</h1>
-                </div>
+a {
+    text-decoration: none;
+}
 
-            </nav>
-            <ul class="menu">
-                <li id="home"><a href="#Home">Home</a></li>
-                <li><a href="#About">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Mission</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+:root {
+    --text-white: rgba(255, 255, 255, 0.756);
+    --text-green: rgba(172, 255, 47, 0.664);
+    --name-font-size: 20px;
+    --con-width: 80%;
+    --con-height: 80vh;
+    --main-height: 60%;
+    --web-lode: 1s;
+    --web-lod-delay: 0s;
+    --nav-lod: 2s;
+    --container-radius: 0 100px 0 100px;
+    --img-radius: 50px;
+    /* ----------Calculation---------- */
+    --img-red: 0 var(--img-radius) 0 var(--img-radius);
+    --con-padd: calc(2.5 * var(--name-font-size));
+    --photo-size: calc(9*var(--name-font-size));
+    --ph: var(--photo-size);
+    --pw: var(--photo-size);
+    --h-font: calc(1.5 * var(--name-font-size));
+    --p-font: calc(.85* var(--name-font-size));
+}
 
-        </header>
-        <main >
-            <div class="home" >
-                <h3>Hello i'm</h3>
-                <h1>Vishal Kumar Singh</h1>
-                <h2>I have studied 
-                    <span style="--i:4" data-text="C++">C++</span>
-                    <span style="--i:3" data-text="Java">Java</span>
-                    <span style="--i:2" data-text="Html">Html</span>
-                    <span style="--i:1" data-text="Css">Css</span>
-                </h2>
-                <p>Hello! I'm Vishal Kumar Singh, a 19-year-old student currently pursuing a Bachelor of Computer
-                    Applications (BCA). With a strong foundation in C++, Java, HTML, and CSS, I have a passion for
-                    coding
-                    and web development. I am constantly eager to learn new technologies and improve my skills in the
-                    ever-evolving world of computer science.</p>
-            </div>
-        </main>
+.container {
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: var(--container-radius);
+    color: var(--text-white);
+    overflow: hidden;
+    animation: loading var(--web-lode) forwards var(--web-lod-delay);
+}
 
-    </div>
-    <script src="script.js"></script>
-</body>
+header {
+    transform: translateY(-100px);
+    opacity: 0;
+    animation: headerDown var(--nav-lod) forwards calc(var(--web-lode) + var(--web-lod-delay));
+}
 
-</html>
+header nav {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+header nav .my-photo {
+    width: var(--pw);
+    height: var(--ph);
+    background-image: url("./no-back.png");
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.8);
+    background-size: cover;
+    border-radius: var(--img-red);
+    opacity: .9;
+}
+
+header nav .logo h1 span {
+    letter-spacing: 3px;
+    color: greenyellow;
+    font-size: var(--name-font-size);
+}
+
+header nav .logo h1 {
+    font-size: var(--h-font);
+}
+
+header nav .logo h1::after {
+    content: "";
+    border-right: 2px solid;
+    animation: blink-curser .5s alternate infinite;
+    font-size: var(--h-font);
+}
+
+header,
+header .menu {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    list-style: none;
+}
+
+header .menu a {
+    color: var(--text-green);
+    font-size: 18px;
+}
+
+header .menu li::after {
+    content: " ";
+    width: 0;
+    display: block;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    transition: all .5s .3s;
+}
+
+header .menu li:hover::after {
+    width: 100%;
+    background-color: var(--text-green);
+}
+
+main {
+    height: var(--main-height);
+    display: grid;
+    place-items: center;
+    transform: translateY(100px);
+    opacity: 0;
+    animation: containtLoading var(--nav-lod) forwards calc(var(--web-lode) + var(--web-lod-delay));
+}
+
+.home {
+    width: calc(1.1* var(--main-height));
+    place-items: center;
+}
+
+.home h1 {
+    color: var(--text-green);
+    font-size: var(--h-font);
+}
+
+.home h2{
+    font-size: var(--h-font);
+    --wts:calc(.008 * var(--h-font))
+}
+.home h2 span {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke:var(--wts) var(--text-green);
+    animation: text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+
+.home h2 span::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid var(--text-green);
+    color: var(--text-green);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: text-file 4s linear infinite;
+}
+
+.home p {
+    text-align: justify;
+    font-size: var(--p-font);
+}
+
+/*-------------------- animation-------------------- */
+
+@keyframes loading {
+
+    to {
+        width: var(--con-width);
+        height: var(--con-height);
+        padding: var(--con-padd);
+        background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(3px);
+    }
+}
+
+@keyframes headerDown {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes blink-curser {
+    to {
+        border: none;
+    }
+}
+
+@keyframes containtLoading {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes text {
+
+    25%,
+    100% {
+        display: none;
+    }
+}
+
+@keyframes text-file {
+
+    10%,
+    100% {
+        width: 0;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+/* ----------Media---------------- */
+@media (max-width:1000px) {
+    :root {
+        --name-font-size: 15px;
+        --con-width: 90%;
+    }
+
+    header .menu {
+        gap: 20px;
+    }
+}
+
+@media (max-width:530px) {
+    :root {
+        --name-font-size: 15px;
+        --con-width: 90%;
+        --main-height: 85%;
+        --img-radius: 25px;
+    }
+
+    body {
+        background-image: url("https://th.bing.com/th/id/OIP.ZYJC3SMoJJliDUiQW6BOQwHaNK?rs=1&pid=ImgDetMain");
+    }
+
+    header {
+        gap: 0;
+    }
+
+    header nav {
+        width: 100%;
+        gap: 40px;
+    }
+
+    header .menu {
+        display: none;
+    }
+}
+
+@media (max-width:480px) {
+    :root {
+        --name-font-size: 12px;
+    }
+
+    body {
+        background-image: url("https://img.freepik.com/premium-photo/stunning-nature-photography-water-mountains-foggy-sky-with-beautiful-clouds_899449-97684.jpg");
+    }
+
+    header nav {
+        gap: 30px;
+    }
+}
+
+@media (max-width:380px) {
+    :root {
+        --name-font-size: 12px;
+    }
+
+    body {
+        background-image: url("https://i.pinimg.com/236x/a9/ce/58/a9ce582aa9af058f46f4d68a2f82d2db.jpg");
+    }
+
+    header nav {
+        gap: 15px;
+    }
+}

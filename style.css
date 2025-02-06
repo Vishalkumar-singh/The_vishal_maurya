@@ -64,7 +64,7 @@ header nav {
 header nav .my-photo {
     width: var(--pw);
     height: var(--ph);
-    background-image: url("../myWeb/no-back.png");
+    background-image: url("./no-back.png");
     box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.8);
     background-size: cover;
     border-radius: var(--img-radius);

@@ -224,9 +224,15 @@ main {
         --main-height: 85%;
         --img-radius: 25px;
     }
-    header{
+
+    body {
+        background-image: url("https://th.bing.com/th/id/OIP.ZYJC3SMoJJliDUiQW6BOQwHaNK?rs=1&pid=ImgDetMain");
+    }
+
+    header {
         gap: 0;
     }
+
     header nav {
         width: 100%;
         gap: 40px;
@@ -242,6 +248,10 @@ main {
         --name-font-size: 12px;
     }
 
+    body {
+        background-image: url("https://img.freepik.com/premium-photo/stunning-nature-photography-water-mountains-foggy-sky-with-beautiful-clouds_899449-97684.jpg");
+    }
+
     header nav {
         gap: 30px;
     }
@@ -250,6 +260,10 @@ main {
 @media (max-width:380px) {
     :root {
         --name-font-size: 12px;
+    }
+
+    body {
+        background-image: url("https://i.pinimg.com/236x/a9/ce/58/a9ce582aa9af058f46f4d68a2f82d2db.jpg");
     }
 
     header nav {

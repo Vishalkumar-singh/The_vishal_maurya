@@ -126,7 +126,7 @@ main {
 }
 
 .home {
-    width: var(--main-height);
+    width: calc(1.1* var(--main-height));
     place-items: center;
 }
 
@@ -224,9 +224,11 @@ main {
         --main-height: 85%;
         --img-radius: 25px;
     }
-
+    header{
+        gap: 0;
+    }
     header nav {
-        width: 90%;
+        width: 100%;
         gap: 40px;
     }
 
@@ -239,14 +241,18 @@ main {
     :root {
         --name-font-size: 12px;
     }
+
     header nav {
         gap: 30px;
     }
-}@media (max-width:380px) {
+}
+
+@media (max-width:380px) {
     :root {
-        --name-font-size: 11px;
+        --name-font-size: 12px;
     }
+
     header nav {
-        gap: 20px;
+        gap: 15px;
     }
 }
